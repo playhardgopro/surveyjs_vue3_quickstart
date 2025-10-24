@@ -6,5 +6,11 @@ const survey = new Model(json);
 </script>
 
 <template>
-  <SurveyComponent :model="survey"></SurveyComponent>
+  <div>
+    <div style="color: red; font-size: 24px; text-align: center;">
+      survey.isLastPage: {{ survey.isLastPage }}
+    </div>
+
+    <SurveyComponent :model="survey"></SurveyComponent>
+  </div>
 </template>

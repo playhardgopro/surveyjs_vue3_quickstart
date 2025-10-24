@@ -1,95 +1,195 @@
 export const json = {
-  title: "Product Feedback Survey",
-  showProgressBar: "top",
-  pages: [{
-    elements: [{
-      type: "matrix",
-      name: "Quality",
-      title: "Please indicate if you agree or disagree with the following statements",
-      columns: [{
-        value: 1,
-        text: "Strongly disagree"
-      }, {
-        value: 2,
-        text: "Disagree"
-      }, {
-        value: 3,
-        text: "Neutral"
-      }, {
-        value: 4,
-        text: "Agree"
-      }, {
-        value: 5,
-        text: "Strongly agree"
-      }],
-      rows: [{
-        value: "affordable",
-        text: "Product is affordable"
-      }, {
-        value: "does what it claims",
-        text: "Product does what it claims"
-      }, {
-        value: "better then others",
-        text: "Product is better than other products on the market"
-      }, {
-        value: "easy to use",
-        text: "Product is easy to use"
-      }]
-    }, {
-      type: "rating",
-      name: "satisfaction",
-      title: "How satisfied are you with the product?",
-      mininumRateDescription: "Not satisfied",
-      maximumRateDescription: "Completely satisfied"
-    }, {
-      type: "rating",
-      name: "recommend friends",
-      visibleIf: "{satisfaction} > 3",
-      title: "How likely are you to recommend the product to a friend or colleague?",
-      mininumRateDescription: "Won't recommend",
-      maximumRateDescription: "Will recommend"
-    }, {
-      type: "comment",
-      name: "suggestions",
-      title: "What would make you more satisfied with the product?"
-    }]
-  }, {
-    elements: [{
-      type: "radiogroup",
-      name: "price to competitors",
-      title: "Compared to our competitors, do you feel the product is",
-      choices: [
-        "Less expensive",
-        "Priced about the same",
-        "More expensive",
-        "Not sure"
-      ]
-    }, {
-      type: "radiogroup",
-      name: "price",
-      title: "Do you feel our current price is merited by our product?",
-      choices: [
-        "correct|Yes, the price is about right",
-        "low|No, the price is too low",
-        "high|No, the price is too high"
-      ]
-    }, {
-      type: "multipletext",
-      name: "pricelimit",
-      title: "What is the... ",
-      items: [{
-        name: "mostamount",
-        title: "Most amount you would pay for a product like ours"
-      }, {
-        name: "leastamount",
-        title: "The least amount you would feel comfortable paying"
-      }]
-    }]
-  }, {
-    elements: [{
-      type: "text",
-      name: "email",
-      title: 'Thank you for taking our survey. Please enter your email address and press the "Submit" button.'
-    }]
-  }]
+	pages: [
+		{
+			name: 'data1',
+			elements: [
+				{
+					name: 'level',
+					type: 'radiogroup',
+					title: {
+						default: 'level?',
+					},
+					choices: [
+						{
+							text: {
+								default: '0',
+							},
+							value: '0',
+						},
+						{
+							text: {
+								default:
+									'1',
+							},
+							value: '1',
+						},
+						{
+							text: {
+								default:
+									'2',
+							},
+							value: '2',
+						},
+						{
+							text: {
+								default:
+									'3',
+							},
+							value: '3',
+						},
+					],
+					isRequired: true,
+				},
+			],
+			description: {
+				default: 'Answer a few questions.\n',
+			},
+		},
+		{
+			name: 'data2',
+			elements: [
+				{
+					name: 'age',
+					type: 'rating',
+					title: {
+						default: 'How old are you?',
+					},
+					rateMax: 14,
+					rateCount: 14,
+					isRequired: true,
+					rateValues: [
+						{
+							text: {
+								default: '3 or less',
+							},
+							value: '3 or less',
+						},
+						'4',
+						'5',
+						'6',
+						'7',
+						'8',
+						'9',
+						'10',
+						'11',
+						'12',
+						'13',
+						'14',
+						'15',
+						{
+							text: {
+								default: '16 or more',
+							},
+							value: '16 or more',
+						},
+					],
+					displayMode: 'buttons',
+					autoGenerate: false,
+				},
+				{
+					name: 'name',
+					type: 'text',
+					title: {
+						default: "Your name",
+					},
+					isRequired: true,
+				},
+			],
+		},
+		{
+			name: 'experience',
+			elements: [
+				{
+					name: 'onlineExperience',
+					type: 'radiogroup',
+					title: {
+						default:
+							'Question?',
+					},
+					choices: [
+						{
+							text: {
+								default: 'answer 1',
+							},
+							value: 'answer 1',
+						},
+						{
+							text: {
+
+								default: 'answer 2',
+							},
+							value: 'answer 2',
+						},
+					],
+					isRequired: true,
+				},
+			],
+		},
+		{
+			name: 'choose',
+			elements: [
+				{
+					name: 'lang',
+					type: 'radiogroup',
+					title: {
+						default: 'Language?',
+					},
+					choices: [
+						'English',
+						'Deutsch',
+						'Español',
+						'Français',
+						'Italiano',
+						'Nederlands',
+						'Polski',
+						'Português',
+						'Русский',
+						'Українська',
+					],
+					otherText: {
+						default: 'Other language',
+					},
+					isRequired: true,
+					showOtherItem: true,
+					otherPlaceholder: {
+						default: 'Specify which',
+					},
+				},
+			],
+		},
+		{
+			name: 'select',
+			elements: [
+				{
+					name: 'selection',
+					type: 'radiogroup',
+					title: {
+						default: 'This is the last page',
+					},
+					choices: [
+						{
+							text: {
+								default:
+									'Oh',
+							},
+							value: 'Oh',
+						},
+						{
+							text: {
+								default:
+									'Noooooooo',
+							},
+							value: 'Noooooooo',
+						},
+					],
+				},
+			],
+		},
+	],
+	widthMode: 'static',
+	completeText: { default: 'Continue' },
+	logoPosition: 'right',
+	pageNextText: { default: 'Next' },
+	completedHtml: '',
+	showCompletePage: false,
 };
